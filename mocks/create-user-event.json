@@ -1,8 +1,8 @@
 {
-  "body": "{\"content\":\"hello world\",\"attachment\":\"hello.jpg\"}",
+  "body": "{\"name\":\"Vasile Moraru\",\"picture\":\"hello.jpg\",\"title\":\"SDE I\"}",
   "requestContext": {
     "identity": {
-      "cognitoIdentityId": "USER-SUB-1234"
+      "cognitoIdentityId": "ADMIN"
     }
   }
 }
