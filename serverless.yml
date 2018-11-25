@@ -39,12 +39,6 @@ iamRoleStatements:
 Resource: "arn:aws:dynamodb:eu-west-1:*:*"
 
 functions:
-  # Defines an HTTP API endpoint that calls the main function in create-user.js
-  # - path: url path is /notes
-  # - method: POST request
-  # - cors: enabled CORS (Cross-Origin Resource Sharing) for browser cross
-  #   domain api call
-  # - authorizer: authenticate using the AWS IAM role
   create-user:
     handler: create-user.main
     events:
@@ -55,9 +49,6 @@ functions:
           authorizer: aws_iam
 
   get-user:
-    # Defines an HTTP API endpoint that calls the main function in get-user.js
-    # - path: url path is /notes/{id}
-    # - method: GET request
     handler: get-user.main
     events:
       - http:
@@ -67,9 +58,6 @@ functions:
           authorizer: aws_iam
 
   list-users:
-    # Defines an HTTP API endpoint that calls the main function in list-users.js
-    # - path: url path is /notes
-    # - method: GET request
     handler: list-users.main
     events:
       - http:
@@ -79,9 +67,6 @@ functions:
           authorizer: aws_iam
 
   update-user:
-    # Defines an HTTP API endpoint that calls the main function in update-user.js
-    # - path: url path is /notes/{id}
-    # - method: PUT request
     handler: update-user.main
     events:
       - http:
@@ -91,9 +76,6 @@ functions:
           authorizer: aws_iam
 
   delete-user:
-    # Defines an HTTP API endpoint that calls the main function in  delete.js
-    # - path: url path is /notes/{id}
-    # - method: DELETE request
     handler: delete-user.main
     events:
       - http:
