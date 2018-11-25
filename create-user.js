@@ -1,4 +1,3 @@
-// import uuid from "uuid";
 import * as dynamoDbLib from "./libs/dynamodb-lib";
 import {success, failure} from "./libs/response-lib";
 
@@ -11,6 +10,7 @@ export async function main(event, context, callback) {
             userId: event.requestContext.identity.cognitoIdentityId,
             picture: data.picture,
             title: data.title,
+            name: data.name,
             createdAt: Date.now()
         }
     };

@@ -10,12 +10,8 @@ export async function main(event, context, callback) {
     };
 
     try {
-        const result = await dynamoDbLib.call("get", params);
-        if (result.Item) {
-            callback(null, success(result.Item));
-        } else {
-            callback(null, failure({status: false, error: "Item not found."}));
-        }
+        await dynamoDbLib.call("delete", params);
+        callback(null, success({status: true}));
     } catch (e) {
         callback(null, failure({status: false}));
     }

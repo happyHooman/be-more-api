@@ -1,8 +1,8 @@
 {
-  "body": "{\"name\":\"Vasile Moraru\",\"picture\":\"hello.jpg\",\"title\":\"SDE I\"}",
+  "body": "{\"name\":\"Del Deleto\",\"picture\":\"del.jpg\",\"title\":\"QA II\"}",
   "requestContext": {
     "identity": {
-      "cognitoIdentityId": "ADMIN"
+      "cognitoIdentityId": "dummy"
     }
   }
 }

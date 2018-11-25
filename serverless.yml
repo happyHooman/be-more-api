@@ -67,13 +67,37 @@ functions:
           authorizer: aws_iam
 
   list-users:
-  # Defines an HTTP API endpoint that calls the main function in list-users.js
-  # - path: url path is /notes
-  # - method: GET request
+    # Defines an HTTP API endpoint that calls the main function in list-users.js
+    # - path: url path is /notes
+    # - method: GET request
     handler: list-users.main
     events:
       - http:
           path: users
           method: get
+          cors: true
+          authorizer: aws_iam
+
+  update-user:
+    # Defines an HTTP API endpoint that calls the main function in update-user.js
+    # - path: url path is /notes/{id}
+    # - method: PUT request
+    handler: update-user.main
+    events:
+      - http:
+          path: users
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  delete-user:
+    # Defines an HTTP API endpoint that calls the main function in  delete.js
+    # - path: url path is /notes/{id}
+    # - method: DELETE request
+    handler: delete-user.main
+    events:
+      - http:
+          path: users/{id}
+          method: delete
           cors: true
           authorizer: aws_iam
