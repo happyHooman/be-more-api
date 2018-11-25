@@ -66,4 +66,14 @@ functions:
           cors: true
           authorizer: aws_iam
 
-
+  list-users:
+  # Defines an HTTP API endpoint that calls the main function in list-users.js
+  # - path: url path is /notes
+  # - method: GET request
+    handler: list-users.main
+    events:
+      - http:
+          path: users
+          method: get
+          cors: true
+          authorizer: aws_iam
