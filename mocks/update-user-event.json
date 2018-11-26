@@ -1,11 +1,6 @@
 {
-  "body": "{\"name\":\"new world\",\"picture\":\"new.jpg\"}",
+  "body": "{\"title\":\"golem\",\"picture\":\"new.jpg\"}",
   "pathParameters": {
-    "id": "florin"
-  },
-  "requestContext": {
-    "identity": {
-      "cognitoIdentityId": "florin"
-    }
+    "id": "dummy"
   }
 }

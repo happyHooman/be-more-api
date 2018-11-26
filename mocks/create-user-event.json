@@ -1,5 +1,5 @@
 {
-  "body": "{\"name\":\"Gandalf the Grey\",\"picture\":\"boo.jpg\",\"title\":\"Mage\"}",
+  "body": "{\"userName\":\"Gandalf the Grey\",\"picture\":\"boo.jpg\",\"title\":\"Mage\"}",
   "requestContext": {
     "identity": {
       "cognitoIdentityId": "gandalf"

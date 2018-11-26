@@ -10,7 +10,7 @@ export async function main(event, context, callback) {
             userId: event.requestContext.identity.cognitoIdentityId,
             picture: data.picture,
             title: data.title,
-            name: data.name,
+            userName: data.userName,
             createdAt: Date.now()
         }
     };
