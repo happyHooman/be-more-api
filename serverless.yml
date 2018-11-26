@@ -73,7 +73,7 @@ functions:
           path: users/{id}
           method: put
           cors: true
-#          authorizer: aws_iam
+          authorizer: aws_iam
 
   delete-user:
     handler: user/delete-user.main
