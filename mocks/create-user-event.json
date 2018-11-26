@@ -1,8 +1,8 @@
 {
-  "body": "{\"name\":\"Del Deleto\",\"picture\":\"del.jpg\",\"title\":\"QA II\"}",
+  "body": "{\"name\":\"Gandalf the Grey\",\"picture\":\"boo.jpg\",\"title\":\"Mage\"}",
   "requestContext": {
     "identity": {
-      "cognitoIdentityId": "dummy"
+      "cognitoIdentityId": "gandalf"
     }
   }
 }

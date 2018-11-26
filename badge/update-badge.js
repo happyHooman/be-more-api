@@ -1,16 +1,15 @@
-import * as dynamoDbLib from "./libs/dynamodb-lib";
-import {success, failure} from "./libs/response-lib";
+import * as dynamoDbLib from "../libs/dynamodb-lib";
+import {success, failure} from "../libs/response-lib";
 
 export async function main(event, context, callback) {
     const data = JSON.parse(event.body);
     const params = {
-        TableName: "be-more-user-details",
+        TableName: "be-more-badges",
         Key: {
-            userId: event.requestContext.identity.cognitoIdentityId
+            badgeId: event.pathParameters.id
         },
-        UpdateExpression: "SET name = :name, picture = :picture, title = :title",
+        UpdateExpression: "SET picture = :picture, title = :title",
         ExpressionAttributeValues: {
-            ":name": data.name ? data.name : null,
             ":picture": data.picture ? data.picture : null,
             ":title": data.title ? data.title : null
         },

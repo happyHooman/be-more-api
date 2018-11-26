@@ -40,7 +40,7 @@ Resource: "arn:aws:dynamodb:eu-west-1:*:*"
 
 functions:
   create-user:
-    handler: create-user.main
+    handler: user/create-user.main
     events:
       - http:
           path: users
@@ -49,7 +49,7 @@ functions:
           authorizer: aws_iam
 
   get-user:
-    handler: get-user.main
+    handler: user/get-user.main
     events:
       - http:
           path: users/{id}
@@ -58,7 +58,7 @@ functions:
           authorizer: aws_iam
 
   list-users:
-    handler: list-users.main
+    handler: user/list-users.main
     events:
       - http:
           path: users
@@ -67,7 +67,7 @@ functions:
           authorizer: aws_iam
 
   update-user:
-    handler: update-user.main
+    handler: user/update-user.main
     events:
       - http:
           path: users
@@ -76,10 +76,55 @@ functions:
           authorizer: aws_iam
 
   delete-user:
-    handler: delete-user.main
+    handler: user/delete-user.main
     events:
       - http:
           path: users/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+
+  create-badge:
+    handler: badge/create-badge.main
+    events:
+      - http:
+          path: badges
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  get-badge:
+    handler: badge/get-badge.main
+    events:
+      - http:
+          path: badges/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  list-badges:
+    handler: badge/list-badges.main
+    events:
+      - http:
+          path: badges
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  update-badge:
+    handler: badge/update-badge.main
+    events:
+      - http:
+          path: badges/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  delete-badge:
+    handler: badge/delete-badge.main
+    events:
+      - http:
+          path: badges/{id}
           method: delete
           cors: true
           authorizer: aws_iam
