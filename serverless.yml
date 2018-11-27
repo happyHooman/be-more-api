@@ -84,6 +84,24 @@ functions:
           cors: true
           authorizer: aws_iam
 
+  assign-badge:
+    handler: user/assign-badge.main
+    events:
+      - http:
+          path: users/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  update-title:
+    handler: user/update-title.main
+    events:
+      - http:
+          path: users/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
   create-badge:
     handler: badge/create-badge.main
     events:
@@ -125,6 +143,51 @@ functions:
     events:
       - http:
           path: badges/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+
+  create-ladder:
+    handler: ladder/create-ladder.main
+    events:
+      - http:
+          path: ladders
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  get-ladder:
+    handler: ladder/get-ladder.main
+    events:
+      - http:
+          path: ladders/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  list-ladders:
+    handler: ladder/list-ladders.main
+    events:
+      - http:
+          path: ladders
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  update-ladder:
+    handler: ladder/update-ladder.main
+    events:
+      - http:
+          path: ladders/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  delete-ladder:
+    handler: ladder/delete-ladder.main
+    events:
+      - http:
+          path: ladders/{id}
           method: delete
           cors: true
           authorizer: aws_iam

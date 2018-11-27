@@ -1,8 +1,8 @@
 {
-  "body": "{\"userName\":\"Gandalf the Grey\",\"picture\":\"boo.jpg\",\"title\":\"Mage\"}",
+  "body": "{\"userName\":\"Del Deleto\",\"picture\":\"dilit\"}",
   "requestContext": {
     "identity": {
-      "cognitoIdentityId": "gandalf"
+      "cognitoIdentityId": "delpiero"
     }
   }
 }

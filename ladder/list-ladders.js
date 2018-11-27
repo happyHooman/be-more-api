@@ -4,16 +4,13 @@ import tables from "../libs/tables";
 
 export async function main(event, context, callback) {
     const params = {
-        TableName: tables.badges,
-        Key: {
-            badgeId: event.pathParameters.id
-        }
+        TableName: tables.ladders
     };
 
     try {
-        await dynamoDbLib.call("delete", params);
-        callback(null, success({status: true}));
+        const result = await dynamoDbLib.call("scan", params);
+        callback(null, success(result.Items));
     } catch (e) {
-        callback(null, failure({status: false}));
+        callback(null, failure({ status: false }));
     }
 }

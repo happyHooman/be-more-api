@@ -1,6 +1,6 @@
 {
-  "body": "{\"title\":\"golem\",\"picture\":\"new.jpg\"}",
+  "body": "{\"userName\":\"David\",\"picture\":\"old\"}",
   "pathParameters": {
-    "id": "dummy"
+    "id": "example"
   }
 }

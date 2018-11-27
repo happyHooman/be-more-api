@@ -4,15 +4,15 @@ import tables from "../libs/tables";
 
 export async function main(event, context, callback) {
 	const data = JSON.parse(event.body);
+
 	const params = {
 		TableName: tables.users,
 		Key: {
 			userId: event.pathParameters.id
 		},
-		UpdateExpression: "SET  userName = :userName, picture = :picture",
+		UpdateExpression: "SET  title = :title",
 		ExpressionAttributeValues: {
-			":userName": data.userName ? data.userName : null,
-			":picture": data.picture ? data.picture : null
+			":title": data.title ? data.title : null
 		},
 		ReturnValues: "ALL_NEW"
 	};

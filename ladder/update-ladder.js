@@ -5,14 +5,13 @@ import tables from "../libs/tables";
 export async function main(event, context, callback) {
     const data = JSON.parse(event.body);
     const params = {
-        TableName: tables.badges,
+        TableName: tables.ladders,
         Key: {
-            badgeId: event.pathParameters.id
+	        ladderId: event.pathParameters.id
         },
-        UpdateExpression: "SET picture = :picture, title = :title",
+        UpdateExpression: "SET ladderName = :ladderName",
         ExpressionAttributeValues: {
-            ":picture": data.picture ? data.picture : null,
-            ":title": data.title ? data.title : null
+            ":ladderName": data.ladderName ? data.ladderName : null,
         },
         ReturnValues: "ALL_NEW"
     };

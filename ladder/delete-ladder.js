@@ -4,9 +4,9 @@ import tables from "../libs/tables";
 
 export async function main(event, context, callback) {
     const params = {
-        TableName: tables.badges,
+        TableName: tables.ladders,
         Key: {
-            badgeId: event.pathParameters.id
+	        ladderId: event.pathParameters.id
         }
     };
 

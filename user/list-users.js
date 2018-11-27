@@ -1,9 +1,10 @@
 import * as dynamoDbLib from "../libs/dynamodb-lib";
 import {success, failure} from "../libs/response-lib";
+import tables from "../libs/tables";
 
 export async function main(event, context, callback) {
     const params = {
-        TableName: "be-more-user-details"
+        TableName: tables.users
     };
 
     try {
