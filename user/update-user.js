@@ -7,7 +7,7 @@ export async function main(event, context, callback) {
 	const params = {
 		TableName: tables.users,
 		Key: {
-			userId: event.pathParameters.id
+			userId: event.requestContext.identity.cognitoIdentityId
 		},
 		UpdateExpression: "SET  userName = :userName, picture = :picture",
 		ExpressionAttributeValues: {

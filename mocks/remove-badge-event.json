@@ -1,5 +1,5 @@
 {
-  "body": "{\"badgeId\":\"[aa]\"}",
+  "body": "{\"badgeId\":\"cc\"}",
   "pathParameters": {
     "id": "example"
   }

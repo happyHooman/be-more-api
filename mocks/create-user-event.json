@@ -1,8 +1,8 @@
 {
-  "body": "{\"userName\":\"Del Deleto\",\"picture\":\"dilit\"}",
+  "body": "{\"userName\":\"Artificial User\",\"picture\":\"masca\"}",
   "requestContext": {
     "identity": {
-      "cognitoIdentityId": "delpiero"
+      "cognitoIdentityId": "38841332-7452-4bd1-aae5-37b193c27ade"
     }
   }
 }

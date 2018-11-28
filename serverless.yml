@@ -48,6 +48,15 @@ functions:
           cors: true
           authorizer: aws_iam
 
+  get-self:
+    handler: user/get-self.main
+    events:
+      - http:
+          path: user
+          method: get
+          cors: true
+          authorizer: aws_iam
+
   get-user:
     handler: user/get-user.main
     events:
@@ -70,7 +79,7 @@ functions:
     handler: user/update-user.main
     events:
       - http:
-          path: users/{id}
+          path: users
           method: put
           cors: true
           authorizer: aws_iam
@@ -86,6 +95,15 @@ functions:
 
   assign-badge:
     handler: user/assign-badge.main
+    events:
+      - http:
+          path: users/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  remove-badge:
+    handler: user/remove-badge.main
     events:
       - http:
           path: users/{id}

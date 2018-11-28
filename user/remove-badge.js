@@ -7,11 +7,11 @@ export async function main(event, context, callback) {
 	const params = {
 		TableName: tables.users,
 		Key: {
-			userId: { S: event.pathParameters.id}
+			userId: event.pathParameters.id
 		},
-		UpdateExpression: "ADD badges :badgeId",
+		UpdateExpression: "DELETE badges :badgeId",
 		ExpressionAttributeValues: {
-			":badgeId": {SS: data.badgeId}
+			":badgeId": data.badgeId ? data.badgeId : null
 		},
 		ReturnValues: "ALL_NEW"
 	};
@@ -21,6 +21,6 @@ export async function main(event, context, callback) {
 		callback(null, success({status: true}));
 	} catch (e) {
 		console.log(e);
-		callback(null, failure({status: false, msg: data.badgeId}));
+		callback(null, failure({status: false}));
 	}
 }
