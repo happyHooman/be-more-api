@@ -3,24 +3,43 @@ import {success, failure} from "../libs/response-lib";
 import tables from "../libs/tables";
 
 export async function main(event, context, callback) {
-	const data = JSON.parse(event.body);
-	const params = {
-		TableName: tables.users,
-		Key: {
-			userId: event.pathParameters.id
-		},
-		UpdateExpression: "DELETE badges :badgeId",
-		ExpressionAttributeValues: {
-			":badgeId": data.badgeId ? data.badgeId : null
-		},
-		ReturnValues: "ALL_NEW"
-	};
+    const data = JSON.parse(event.body);
+    const params = {
+        TableName: tables.users,
+        Key: {
+            userId: event.pathParameters.id
+        }
+    };
 
-	try {
-		await dynamoDbLib.call("update", params);
-		callback(null, success({status: true}));
-	} catch (e) {
-		console.log(e);
-		callback(null, failure({status: false}));
-	}
+    try {
+        const result = await dynamoDbLib.call("get", params);
+        if (result.Item) {
+            let badgeList = result.Item.badges || [];
+            badgeList.push(data.badgeId);
+
+            const params = {
+                TableName: tables.users,
+                Key: {
+                    userId: event.pathParameters.id
+                },
+                UpdateExpression: "SET badges = :badgeList",
+                ExpressionAttributeValues: {
+                    ":badgeList": badgeList
+                },
+                ReturnValues: "ALL_NEW"
+            };
+
+            try {
+                await dynamoDbLib.call("update", params);
+                callback(null, success({status: true}));
+            } catch (e) {
+                console.log(e);
+                callback(null, failure({status: false}));
+            }
+        } else {
+            callback(null, failure({status: false, error: "User not found"}));
+        }
+    } catch (e) {
+        callback(null, failure({status: false}));
+    }
 }

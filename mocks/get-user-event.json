@@ -1,10 +1,5 @@
 {
   "pathParameters": {
-    "id": "florin"
-  },
-  "requestContext": {
-    "identity": {
-      "cognitoIdentityId": "vasilica"
-    }
+    "id": "test"
   }
 }

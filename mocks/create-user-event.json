@@ -2,7 +2,7 @@
   "body": "{\"userName\":\"Artificial User\",\"picture\":\"masca\"}",
   "requestContext": {
     "identity": {
-      "cognitoIdentityId": "38841332-7452-4bd1-aae5-37b193c27ade"
+      "cognitoIdentityId": "test"
     }
   }
 }
