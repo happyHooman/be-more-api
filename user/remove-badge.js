@@ -15,7 +15,10 @@ export async function main(event, context, callback) {
         const result = await dynamoDbLib.call("get", params);
         if (result.Item) {
             let badgeList = result.Item.badges || [];
-            badgeList.push(data.badgeId);
+
+            // next 2 lines are the only different part
+            let i = badgeList.indexOf(data.badgeId);
+            badgeList.splice(i, 1);
 
             const params = {
                 TableName: tables.users,
