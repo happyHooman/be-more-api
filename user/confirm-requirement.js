@@ -14,19 +14,19 @@ export async function main(event, context, callback) {
     try {
         const result = await dynamoDbLib.call("get", params);
         if (result.Item) {
-            let badgeList = result.Item.badges || [];
+            let requirementsList = result.Item.confirmedRequirements || [];
 
             // next line is the only different part from
-            badgeList.push(data.badgeId);
+            requirementsList.push(data.requirementId);
 
             const params = {
                 TableName: tables.users,
                 Key: {
                     userId: event.pathParameters.id
                 },
-                UpdateExpression: "SET badges = :badgeList",
+                UpdateExpression: "SET confirmedRequirements = :requirementsList",
                 ExpressionAttributeValues: {
-                    ":badgeList": badgeList
+                    ":requirementsList": requirementsList
                 },
                 ReturnValues: "ALL_NEW"
             };

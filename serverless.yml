@@ -97,7 +97,7 @@ functions:
     handler: user/assign-badge.main
     events:
       - http:
-          path: users/{id}
+          path: users/{id}/assign-badge
           method: put
           cors: true
           authorizer: aws_iam
@@ -106,7 +106,16 @@ functions:
     handler: user/remove-badge.main
     events:
       - http:
-          path: users/{id}
+          path: users/{id}/remove-badge
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  confirm-requirement:
+    handler: user/confirm-requirement.main
+    events:
+      - http:
+          path: users/{id}/confirm-requirement
           method: put
           cors: true
           authorizer: aws_iam

@@ -1,0 +1,6 @@
+{
+  "body": "{\"requirementId\":\"rr\"}",
+  "pathParameters": {
+    "id": "test"
+  }
+}
