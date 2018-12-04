@@ -21,7 +21,6 @@ export async function main(event, context, callback) {
 		await dynamoDbLib.call("update", params);
 		callback(null, success({status: true}));
 	} catch (e) {
-		console.log(e);
 		callback(null, failure({status: false}));
 	}
 }

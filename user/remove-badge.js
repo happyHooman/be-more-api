@@ -18,6 +18,9 @@ export async function main(event, context, callback) {
 
             // next 2 lines are the only different part
             let i = badgeList.indexOf(data.badgeId);
+            if (i<0){
+	            callback(null, failure({status: false, error: 'Badge not found in badges list'}));
+            }
             badgeList.splice(i, 1);
 
             const params = {
@@ -36,7 +39,6 @@ export async function main(event, context, callback) {
                 await dynamoDbLib.call("update", params);
                 callback(null, success({status: true}));
             } catch (e) {
-                console.log(e);
                 callback(null, failure({status: false}));
             }
         } else {
