@@ -220,7 +220,7 @@ functions:
           authorizer: aws_iam
 
   get-step:
-    handler: steps/get-step.main
+    handler: ladder/get-step.main
     events:
       - http:
           path: ladders/{ladder}{step}
