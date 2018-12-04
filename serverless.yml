@@ -210,20 +210,20 @@ functions:
           cors: true
           authorizer: aws_iam
 
-  update-ladder:
-    handler: ladder/update-ladder.main
-    events:
-      - http:
-          path: ladders/{id}
-          method: put
-          cors: true
-          authorizer: aws_iam
-
   delete-ladder:
     handler: ladder/delete-ladder.main
     events:
       - http:
           path: ladders/{id}
           method: delete
+          cors: true
+          authorizer: aws_iam
+
+  get-step:
+    handler: steps/get-step.main
+    events:
+      - http:
+          path: ladders/{ladder}{step}
+          method: get
           cors: true
           authorizer: aws_iam

@@ -1,8 +1,8 @@
 {
-  "body": "{\"userName\":\"Artificial User\",\"picture\":\"masca\"}",
+  "body": "{\"userName\":\"Test\",\"picture\":\"incognito\"}",
   "requestContext": {
     "identity": {
-      "cognitoIdentityId": "test"
+      "cognitoIdentityId": "toxic"
     }
   }
 }
