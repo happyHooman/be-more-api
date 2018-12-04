@@ -120,6 +120,15 @@ functions:
           cors: true
           authorizer: aws_iam
 
+  unconfirm-requirement:
+    handler: user/unconfirm-requirement.main
+    events:
+      - http:
+          path: users/{id}/unconfirm-requirement
+          method: put
+          cors: true
+          authorizer: aws_iam
+
   update-title:
     handler: user/update-title.main
     events:

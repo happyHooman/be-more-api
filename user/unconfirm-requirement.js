@@ -17,10 +17,11 @@ export async function main(event, context, callback) {
             let requirementsList = result.Item.confirmedRequirements || [];
 
             // next line is the only different part from
-            if (requirementsList.indexOf(data.requirementId)>-1){
-                callback(null,failure({status: false, error: 'Requirement already confirmed'}));
+            let i = requirementsList.indexOf(data.requirementId);
+            if (i<0){
+	            callback(null, failure({status: false, error: 'Requirement not found in confirmed requirements'}));
             }
-            requirementsList.push(data.requirementId);
+            requirementsList.splice(i, 1);
 
             const params = {
                 TableName: tables.users,
@@ -38,8 +39,7 @@ export async function main(event, context, callback) {
                 await dynamoDbLib.call("update", params);
                 callback(null, success({status: true}));
             } catch (e) {
-                console.log(e);
-                callback(null, failure({status: false, error: 'Something went wrong'}));
+                callback(null, failure({status: false}));
             }
         } else {
             callback(null, failure({status: false, error: "User not found"}));
