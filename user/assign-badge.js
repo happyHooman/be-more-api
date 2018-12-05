@@ -27,13 +27,12 @@ export async function main(event, context, callback) {
 				UpdateExpression: "SET badges = :badgeList",
 				ExpressionAttributeValues: {
 					":badgeList": badgeList
-				},
-				ReturnValues: "ALL_NEW"
+				}
 			};
 
 			try {
-				const result = await dynamoDbLib.call("update", params);
-				callback(null, success({result}));
+				await dynamoDbLib.call("update", params);
+				callback(null, success({}));
 			} catch (e) {
 				callback(null, failure({error: 'Something went wrong'}));
 			}
