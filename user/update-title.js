@@ -10,9 +10,10 @@ export async function main(event, context, callback) {
 		Key: {
 			userId: event.pathParameters.id
 		},
-		UpdateExpression: "SET  title = :title",
+		UpdateExpression: "SET  title = :title, ladder = :ladder",
 		ExpressionAttributeValues: {
-			":title": data.title ? data.title : null
+			":title": data.title ? data.title : null,
+			":ladder": data.ladder ? data.ladder : null
 		},
 		ReturnValues: "ALL_NEW"
 	};
