@@ -9,10 +9,11 @@ export async function main(event, context, callback) {
 		Key: {
 			badgeId: event.pathParameters.id
 		},
-		UpdateExpression: "SET picture = :picture, title = :title",
+		UpdateExpression: "SET picture = :picture, description = :description, title = :title",
 		ExpressionAttributeValues: {
 			":picture": data.picture ? data.picture : null,
-			":title": data.title ? data.title : null
+			":title": data.title ? data.title : null,
+			":description": data.description ? data.description : null
 		},
 		ReturnValues: "ALL_NEW"
 	};
