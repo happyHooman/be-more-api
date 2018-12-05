@@ -39,6 +39,7 @@ provider:
       Resource: "arn:aws:dynamodb:eu-west-1:*:*"
 
 functions:
+  # USER RELATED FUNCTIONS
   create-user:
     handler: user/create-user.main
     events:
@@ -75,6 +76,7 @@ functions:
           cors: true
           authorizer: aws_iam
 
+  # this should be much like updating self
   update-user:
     handler: user/update-user.main
     events:
@@ -138,6 +140,7 @@ functions:
           cors: true
           authorizer: aws_iam
 
+  # BADGES
   create-badge:
     handler: badge/create-badge.main
     events:
@@ -183,6 +186,7 @@ functions:
           cors: true
           authorizer: aws_iam
 
+  # LADDERS
   create-ladder:
     handler: ladder/create-ladder.main
     events:
@@ -223,7 +227,7 @@ functions:
     handler: ladder/get-step.main
     events:
       - http:
-          path: ladders/{ladder}{step}
+          path: step/{ladder}/{step}
           method: get
           cors: true
           authorizer: aws_iam

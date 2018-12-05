@@ -11,7 +11,8 @@ export async function main(event, context, callback) {
 		Item: {
 			badgeId: uuid.v1(),
 			picture: data.picture,
-			title: data.title
+			title: data.title,
+			description: data.description
 		}
 	};
 
