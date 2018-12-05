@@ -3,17 +3,17 @@ import {success, failure} from "../libs/response-lib";
 import tables from "../libs/tables";
 
 export async function main(event, context, callback) {
-    const params = {
-        TableName: tables.users,
-        Key: {
-            userId: event.pathParameters.id
-        }
-    };
+	const params = {
+		TableName: tables.users,
+		Key: {
+			userId: event.pathParameters.id
+		}
+	};
 
-    try {
-        await dynamoDbLib.call("delete", params);
-        callback(null, success({status: true}));
-    } catch (e) {
-        callback(null, failure({status: false}));
-    }
+	try {
+		await dynamoDbLib.call("delete", params);
+		callback(null, success({status: true}));
+	} catch (e) {
+		callback(null, failure({status: false}));
+	}
 }
