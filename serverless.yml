@@ -231,3 +231,31 @@ functions:
           method: get
           cors: true
           authorizer: aws_iam
+
+  # FRAMES
+  create-frame:
+    handler: frame/create-frame.main
+    events:
+      - http:
+          path: frames
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  list-frames:
+    handler: frame/list-frames.main
+    events:
+      - http:
+          path: frames
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  delete-frame:
+    handler: frame/delete-frame.main
+    events:
+      - http:
+          path: frames/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
