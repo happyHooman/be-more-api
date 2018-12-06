@@ -13,8 +13,7 @@ export async function main(event, context, callback) {
 		ExpressionAttributeValues: {
 			":userName": data.userName ? data.userName : null,
 			":picture": data.picture ? data.picture : null
-		},
-		ReturnValues: "ALL_NEW"
+		}
 	};
 
 	try {
