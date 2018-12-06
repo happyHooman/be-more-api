@@ -9,7 +9,7 @@ export async function main(event, context, callback) {
 	const params = {
 		TableName: tables.frames,
 		Item: {
-			badgeId: uuid.v1(),
+			frameId: uuid.v1(),
 			picture: data.picture
 		}
 	};
