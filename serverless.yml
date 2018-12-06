@@ -81,7 +81,7 @@ functions:
     handler: user/update-user.main
     events:
       - http:
-          path: users
+          path: users/{id}
           method: put
           cors: true
           authorizer: aws_iam
