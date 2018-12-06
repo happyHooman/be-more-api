@@ -1,6 +1,6 @@
 {
   "body": "{\"userName\":\"David\",\"picture\":\"old\"}",
   "pathParameters": {
-    "id": "example"
+    "id": "eu-west-1:1dcf506e-69d3-4ca8-b003-be1c7a034d95"
   }
 }
