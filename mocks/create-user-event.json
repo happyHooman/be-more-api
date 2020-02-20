@@ -1,0 +1,8 @@
+{
+  "body": "{\"userName\":\"Test\",\"picture\":\"incognito\"}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "toxic"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "body": "{\"badgeId\":\"aa\"}",
+  "pathParameters": {
+    "id": "test"
+  }
+}
